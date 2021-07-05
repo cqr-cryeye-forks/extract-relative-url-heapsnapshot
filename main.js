@@ -58,7 +58,7 @@ function outputResult(data) {
 
 async function init(url) {
     try {
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({args: ['--disable-dev-shm-usage', '--no-sandbox', '--disable-setuid-sandbox'],});
         const page = await browser.newPage();
 
         await page.goto(url, {timeout: 12000});
